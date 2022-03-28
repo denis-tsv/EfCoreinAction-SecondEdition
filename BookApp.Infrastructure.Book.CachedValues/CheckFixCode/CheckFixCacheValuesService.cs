@@ -7,7 +7,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using BookApp.Domain.Books;
-using BookApp.Domain.Books.SupportTypes;
+using BookApp.Domain.Common;
 using BookApp.Persistence.EfCoreSql.Books;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;

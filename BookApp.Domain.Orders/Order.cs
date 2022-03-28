@@ -4,6 +4,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using BookApp.Domain.Common;
 using BookApp.Domain.Orders.SupportTypes;
 using StatusGeneric;
 

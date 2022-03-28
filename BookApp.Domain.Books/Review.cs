@@ -4,7 +4,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.CompilerServices;
-using BookApp.Domain.Books.SupportTypes;
+using BookApp.Domain.Common;
 
 [assembly: InternalsVisibleTo("Test")]
 

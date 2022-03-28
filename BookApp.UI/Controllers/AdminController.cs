@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using BookApp.Domain.Books;
-using BookApp.Domain.Books.SupportTypes;
+using BookApp.Domain.Common;
 using BookApp.Infrastructure.AppParts;
 using BookApp.Infrastructure.Books.CachedValues;
 using BookApp.Infrastructure.Books.CachedValues.CheckFixCode;

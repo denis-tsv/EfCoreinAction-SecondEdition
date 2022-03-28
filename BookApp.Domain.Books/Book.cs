@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using BookApp.Domain.Books.DomainEvents;
-using BookApp.Domain.Books.SupportTypes;
+using BookApp.Domain.Common;
 using GenericEventRunner.DomainParts;
 using StatusGeneric;
 

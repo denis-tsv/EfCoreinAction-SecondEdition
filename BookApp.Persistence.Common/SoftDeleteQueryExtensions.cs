@@ -4,8 +4,7 @@
 using System;
 using System.Linq.Expressions;
 using System.Reflection;
-using BookApp.Domain.Books.SupportTypes;
-using BookApp.Domain.Orders.SupportTypes;
+using BookApp.Domain.Common;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 

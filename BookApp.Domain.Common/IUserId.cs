@@ -1,11 +1,12 @@
 ﻿// Copyright (c) 2020 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
-namespace BookApp.Domain.Books.SupportTypes
+using System;
+
+namespace BookApp.Domain.Common
 {
-    public interface ISoftDelete
+    public interface IUserId
     {
-        bool SoftDeleted { get; }
-        void AlterSoftDelete(bool softDeleted);
+        Guid UserId { get; }
     }
 }

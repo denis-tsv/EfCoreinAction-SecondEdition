@@ -2,7 +2,7 @@
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System;
-using BookApp.Domain.Books.SupportTypes;
+using BookApp.Domain.Common;
 
 namespace BookApp.Domain.Books
 {

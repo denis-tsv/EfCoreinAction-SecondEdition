@@ -10,4 +10,8 @@
     <PackageReference Include="System.ComponentModel.Annotations" Version="6.0.0-preview.4.21253.7" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BookApp.Domain.Common\BookApp.Domain.Common.csproj" />
+  </ItemGroup>
+
 </Project>
