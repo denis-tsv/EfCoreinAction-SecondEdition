@@ -3,8 +3,8 @@
 
 using System;
 using System.Linq;
-using DataLayer.EfClasses;
 using DataLayer.EfCode;
+using Entities.Models;
 
 namespace ServiceLayer.AdminServices.Concrete
 {

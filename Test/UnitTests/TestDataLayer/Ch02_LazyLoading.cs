@@ -3,7 +3,7 @@
 
 using System.Collections.Generic;
 using System.Linq;
-using DataLayer.EfClasses;
+using Entities.Models;
 using Microsoft.EntityFrameworkCore;
 using Test.Chapter02Listings;
 using TestSupport.EfHelpers;

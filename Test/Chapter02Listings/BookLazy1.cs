@@ -3,7 +3,7 @@
 
 using System;
 using System.Collections.Generic;
-using DataLayer.EfClasses;
+using Entities.Models;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 
 namespace Test.Chapter02Listings

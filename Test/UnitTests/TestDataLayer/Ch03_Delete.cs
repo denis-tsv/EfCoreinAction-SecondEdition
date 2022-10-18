@@ -2,8 +2,8 @@
 // Licensed under MIT licence. See License.txt in the project root for license information.
 
 using System.Linq;
-using DataLayer.EfClasses;
 using DataLayer.EfCode;
+using Entities.Models;
 using Microsoft.EntityFrameworkCore;
 using Test.TestHelpers;
 using TestSupport.EfHelpers;

@@ -4,7 +4,7 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using DataLayer.EfClasses;
+using Entities.Models;
 
 namespace Test.Chapter02Listings
 {

@@ -1,12 +1,10 @@
 ﻿// Copyright (c) 2017 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT licence. See License.txt in the project root for license information.
 
-using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using Microsoft.EntityFrameworkCore;
 
-namespace DataLayer.EfClasses
+namespace Entities.Models
 {
     public class LineItem : IValidatableObject //#A
     {
@@ -34,9 +32,6 @@ namespace DataLayer.EfClasses
         IEnumerable<ValidationResult> IValidatableObject.Validate //#C
             (ValidationContext validationContext)                 //#C
         {
-            var currContext = 
-                validationContext.GetService(typeof(DbContext));//#D
-
             if (ChosenBook.Price < 0)                      //#E
                 yield return new ValidationResult(         //#E
         $"Sorry, the book '{ChosenBook.Title}' is not for sale."); //#E

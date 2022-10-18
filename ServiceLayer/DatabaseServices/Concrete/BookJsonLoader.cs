@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using DataLayer.EfClasses;
+using Entities.Models;
 using Newtonsoft.Json;
 
 [assembly: InternalsVisibleTo("test")]

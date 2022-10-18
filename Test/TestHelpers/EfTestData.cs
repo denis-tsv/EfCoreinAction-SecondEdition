@@ -3,8 +3,8 @@
 
 using System;
 using System.Collections.Generic;
-using DataLayer.EfClasses;
 using DataLayer.EfCode;
+using Entities.Models;
 
 namespace Test.TestHelpers
 {

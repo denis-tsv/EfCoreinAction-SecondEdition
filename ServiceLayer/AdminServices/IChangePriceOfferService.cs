@@ -2,7 +2,7 @@
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System.ComponentModel.DataAnnotations;
-using DataLayer.EfClasses;
+using Entities.Models;
 
 namespace ServiceLayer.AdminServices
 {

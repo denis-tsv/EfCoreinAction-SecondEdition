@@ -3,7 +3,7 @@
 
 using System.Collections.Generic;
 
-namespace DataLayer.EfClasses
+namespace Entities.Models
 {
     public class Author //#E
     {

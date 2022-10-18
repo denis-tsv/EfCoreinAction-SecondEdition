@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Linq;
 using BizDbAccess.Orders;
 using BizLogic.GenericInterfaces;
-using DataLayer.EfClasses;
+using Entities.Models;
 
 namespace BizLogic.Orders.Concrete
 {

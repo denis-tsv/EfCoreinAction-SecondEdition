@@ -3,7 +3,7 @@
 
 using System;
 using System.Collections.Generic;
-using DataLayer.EfClasses;
+using Entities.Models;
 
 namespace Test.Chapter02Listings
 {

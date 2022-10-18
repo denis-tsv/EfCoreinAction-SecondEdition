@@ -3,8 +3,8 @@
 
 using System.Threading.Tasks;
 using BizLogic.GenericInterfaces;
-using DataLayer.EfClasses;
 using DataLayer.EfCode;
+using Entities.Models;
 
 namespace Test.Mocks
 {

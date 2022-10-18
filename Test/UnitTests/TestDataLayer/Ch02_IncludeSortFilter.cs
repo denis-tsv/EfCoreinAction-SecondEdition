@@ -3,8 +3,8 @@
 
 using System.Collections.Generic;
 using System.Linq;
-using DataLayer.EfClasses;
 using DataLayer.EfCode;
+using Entities.Models;
 using Microsoft.EntityFrameworkCore;
 using Test.TestHelpers;
 using TestSupport.EfHelpers;

@@ -4,7 +4,7 @@
 using System.Globalization;
 using System.Linq;
 using BookApp.HelperExtensions;
-using DataLayer.EfClasses;
+using Entities.Models;
 using Microsoft.AspNetCore.Mvc;
 using ServiceLayer.AdminServices;
 

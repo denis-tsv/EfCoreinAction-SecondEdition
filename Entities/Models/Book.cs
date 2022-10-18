@@ -3,9 +3,8 @@
 
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 
-namespace DataLayer.EfClasses
+namespace Entities.Models
 {
     public class Book //#A
     {

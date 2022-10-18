@@ -5,8 +5,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using BizLogic.GenericInterfaces;
-using DataLayer.EfClasses;
 using DataLayer.EfCode;
+using Entities.Models;
 
 namespace Test.Mocks
 {

@@ -12,7 +12,7 @@ using TestSupport.EfHelpers;
 using Xunit;
 using Xunit.Abstractions;
 using Xunit.Extensions.AssertExtensions;
-using Review = DataLayer.EfClasses.Review;
+using Review = Entities.Models.Review;
 
 namespace Test.UnitTests.TestDataLayer
 {

@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
 using BizDbAccess.Orders;
-using DataLayer.EfClasses;
+using Entities.Models;
 using Test.TestHelpers;
 
 namespace Test.Mocks
