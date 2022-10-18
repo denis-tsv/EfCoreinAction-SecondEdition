@@ -32,7 +32,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BookApp\BookApp.csproj" />
-    <ProjectReference Include="..\DataLayer\DataLayer.csproj" />
+    <ProjectReference Include="..\DataLayer\Infrastructure.Implementation.MsSql.csproj" />
     <ProjectReference Include="..\ServiceLayer\ApplicationServices.csproj" />
   </ItemGroup>
 
