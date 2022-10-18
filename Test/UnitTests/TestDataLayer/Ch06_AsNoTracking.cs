@@ -4,7 +4,6 @@
 using System.Linq;
 using DataLayer.EfCode;
 using Microsoft.EntityFrameworkCore;
-using MyFirstEfCoreApp;
 using Test.TestHelpers;
 using TestSupport.EfHelpers;
 using Xunit;
@@ -23,62 +22,62 @@ namespace Test.UnitTests.TestDataLayer
         }
 
 
-        [Fact]
-        public void TestDatabaseNormalQueryOk()
-        {
-            //SETUP
-            using (var context = new AppDbContext())
-            {
-                Commands.WipeCreateSeed(true);
+        //[Fact]
+        //public void TestDatabaseNormalQueryOk()
+        //{
+        //    //SETUP
+        //    using (var context = new AppDbContext())
+        //    {
+        //        Commands.WipeCreateSeed(true);
 
-                //ATTEMPT
-                var books = context.Books.Include(x => x.Author).ToList();
+        //        //ATTEMPT
+        //        var books = context.Books.Include(x => x.Author).ToList();
 
-                //VERIFY
-                books.Count.ShouldEqual(4);
-                books.Select(x => x.Author).Distinct().Count().ShouldEqual(3);
-                books.Select(x => x.Author.Name).ShouldEqual(new []{ "Martin Fowler", "Martin Fowler", "Eric Evans", "Future Person" });
-            }
-        }
+        //        //VERIFY
+        //        books.Count.ShouldEqual(4);
+        //        books.Select(x => x.Author).Distinct().Count().ShouldEqual(3);
+        //        books.Select(x => x.Author.Name).ShouldEqual(new []{ "Martin Fowler", "Martin Fowler", "Eric Evans", "Future Person" });
+        //    }
+        //}
 
-        [Fact]
-        public void TestAsNoTrackingQueryOk()
-        {
-            //SETUP
-            using (var context = new AppDbContext())
-            {
-                Commands.WipeCreateSeed(true);
+        //[Fact]
+        //public void TestAsNoTrackingQueryOk()
+        //{
+        //    //SETUP
+        //    using (var context = new AppDbContext())
+        //    {
+        //        Commands.WipeCreateSeed(true);
 
-                //ATTEMPT
-                var books = context.Books.Include(x => x.Author)
-                    .AsNoTracking().ToList();
+        //        //ATTEMPT
+        //        var books = context.Books.Include(x => x.Author)
+        //            .AsNoTracking().ToList();
 
-                //VERIFY
-                books.Count.ShouldEqual(4);
-                books.Select(x => x.Author).Distinct().Count().ShouldEqual(4);
-                books.Select(x => x.Author.Name).ShouldEqual(new[] { "Martin Fowler", "Martin Fowler", "Eric Evans", "Future Person" });
-            }
-        }
+        //        //VERIFY
+        //        books.Count.ShouldEqual(4);
+        //        books.Select(x => x.Author).Distinct().Count().ShouldEqual(4);
+        //        books.Select(x => x.Author.Name).ShouldEqual(new[] { "Martin Fowler", "Martin Fowler", "Eric Evans", "Future Person" });
+        //    }
+        //}
 
 
-        [Fact]
-        public void TestAsNoTrackingWithIdentityResolutionOk()
-        {
-            //SETUP
-            using (var context = new AppDbContext())
-            {
-                Commands.WipeCreateSeed(true);
+        //[Fact]
+        //public void TestAsNoTrackingWithIdentityResolutionOk()
+        //{
+        //    //SETUP
+        //    using (var context = new AppDbContext())
+        //    {
+        //        Commands.WipeCreateSeed(true);
 
-                //ATTEMPT
-                var books = context.Books.Include(x => x.Author)
-                    .AsNoTrackingWithIdentityResolution().ToList();
+        //        //ATTEMPT
+        //        var books = context.Books.Include(x => x.Author)
+        //            .AsNoTrackingWithIdentityResolution().ToList();
 
-                //VERIFY
-                books.Count.ShouldEqual(4);
-                books.Select(x => x.Author).Distinct().Count().ShouldEqual(3);
-                books.Select(x => x.Author.Name).ShouldEqual(new[] { "Martin Fowler", "Martin Fowler", "Eric Evans", "Future Person" });
-            }
-        }
+        //        //VERIFY
+        //        books.Count.ShouldEqual(4);
+        //        books.Select(x => x.Author).Distinct().Count().ShouldEqual(3);
+        //        books.Select(x => x.Author.Name).ShouldEqual(new[] { "Martin Fowler", "Martin Fowler", "Eric Evans", "Future Person" });
+        //    }
+        //}
 
         [Fact]
         public void TestQueryPerformanceOk()
