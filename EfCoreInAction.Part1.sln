@@ -7,13 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test", "Test\Test.csproj", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataLayer", "DataLayer\DataLayer.csproj", "{7D0D3E17-A620-4CC5-90A2-C9BCCE20BEC2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceLayer", "ServiceLayer\ServiceLayer.csproj", "{2819F3A5-99EF-4379-8A2D-2A8ECA3A42A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApplicationServices", "ServiceLayer\ApplicationServices.csproj", "{2819F3A5-99EF-4379-8A2D-2A8ECA3A42A1}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookApp", "BookApp\BookApp.csproj", "{BF8812C2-5F19-4A59-8A22-968ECF89A315}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure.Interfaces", "BizDbAccess\Infrastructure.Interfaces.csproj", "{C8984C15-EA16-4933-ACCF-81E443424A1F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BizLogic", "BizLogic\BizLogic.csproj", "{5CE8C6CD-9C2F-4A95-89D5-5ED2B07E4D02}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Actions", "BizLogic\Actions.csproj", "{5CE8C6CD-9C2F-4A95-89D5-5ED2B07E4D02}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8096CFED-3708-468E-BF9D-3526C4E4558C}"
 	ProjectSection(SolutionItems) = preProject
@@ -26,6 +26,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{32C47236-17B0-43FA-B5BD-13209A6603CC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 Infrastructure.Interfaces", "2 Infrastructure.Interfaces", "{FB9B0E55-DE3A-4B3F-8C6F-143D9BA2CD75}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 UseCases", "3 UseCases", "{510CB9E8-72D0-496C-A84C-2669F883B7DC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -66,7 +68,9 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{2819F3A5-99EF-4379-8A2D-2A8ECA3A42A1} = {510CB9E8-72D0-496C-A84C-2669F883B7DC}
 		{C8984C15-EA16-4933-ACCF-81E443424A1F} = {FB9B0E55-DE3A-4B3F-8C6F-143D9BA2CD75}
+		{5CE8C6CD-9C2F-4A95-89D5-5ED2B07E4D02} = {510CB9E8-72D0-496C-A84C-2669F883B7DC}
 		{32C47236-17B0-43FA-B5BD-13209A6603CC} = {92D39025-D4FB-43A3-9D19-25AB9CAAF3A2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution

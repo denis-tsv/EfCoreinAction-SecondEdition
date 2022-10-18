@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BizLogic\BizLogic.csproj" />
+    <ProjectReference Include="..\BizLogic\Actions.csproj" />
   </ItemGroup>
 
 </Project>
