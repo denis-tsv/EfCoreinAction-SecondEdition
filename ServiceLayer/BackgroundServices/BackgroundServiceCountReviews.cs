@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using DataLayer.EfCode;
 using Entities.Models;
+using Infrastructure.Interfaces.DbContexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -55,7 +56,7 @@ namespace ServiceLayer.BackgroundServices
             using (var scope = _scopeFactory.CreateScope()) //#B
             {
                 var context = scope.ServiceProvider        //#C
-                    .GetRequiredService<EfCoreContext>();  //#C
+                    .GetRequiredService<IEfCoreContext>();  //#C
                 var numReviews = await context.Set<Review>() //#D
                     .CountAsync(stoppingToken);                 //#D
                 _logger.LogInformation(                             //#E

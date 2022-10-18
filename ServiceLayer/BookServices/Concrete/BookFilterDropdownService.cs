@@ -5,15 +5,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using DataLayer.EfCode;
+using Infrastructure.Interfaces.DbContexts;
 using ServiceLayer.BookServices.QueryObjects;
 
 namespace ServiceLayer.BookServices.Concrete
 {
     public class BookFilterDropdownService
     {
-        private readonly EfCoreContext _db;
+        private readonly IEfCoreContext _db;
 
-        public BookFilterDropdownService(EfCoreContext db)
+        public BookFilterDropdownService(IEfCoreContext db)
         {
             _db = db;
         }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using DataLayer.EfCode;
 using Entities.Models;
+using Infrastructure.Interfaces.DbContexts;
 using Microsoft.AspNetCore.Http;
 using ServiceLayer.CheckoutServices;
 
@@ -13,9 +14,9 @@ namespace ServiceLayer.OrderServices.Concrete
 {
     public class DisplayOrdersService
     {
-        private readonly EfCoreContext _context;
+        private readonly IEfCoreContext _context;
 
-        public DisplayOrdersService(EfCoreContext context)
+        public DisplayOrdersService(IEfCoreContext context)
         {
             _context = context;
         }

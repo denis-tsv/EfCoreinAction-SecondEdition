@@ -2,12 +2,19 @@
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System;
+using System.Collections.Generic;
+using System.Collections.Immutable;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Threading.Tasks;
 using Entities.Models;
+using Infrastructure.Interfaces.DbContexts;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage;
 
 namespace DataLayer.EfCode
 {
-    public class EfCoreContext : DbContext
+    public class EfCoreContext : DbContext, IEfCoreContext
     {
         private readonly Guid _userId;                                     //#A
 
@@ -24,6 +31,70 @@ namespace DataLayer.EfCode
         public DbSet<PriceOffer> PriceOffers { get; set; }
         public DbSet<Tag> Tags { get; set; }
         public DbSet<Order> Orders { get; set; }
+
+        public IDbContextTransaction BeginTransaction() => Database.BeginTransaction();
+
+        public ImmutableList<ValidationResult> SaveChangesWithValidation()
+        {
+            var result = this.ExecuteValidation(); //#C
+            if (result.Any()) return result;   //#D
+
+            //I leave out the AutoDetectChangesEnabled on/off from the code shown in chapter 4 as its only a performance issue
+            //I'ts a concept that doesn't add anything to chapter 4. However I leave it in the real code as it has a (small) improvement on performance
+            this.ChangeTracker.AutoDetectChangesEnabled = false; //LEAVE OUT OF CHAPTER 4 - 
+            try
+            {
+                this.SaveChanges(); //#E
+            }
+            finally
+            {
+                this.ChangeTracker.AutoDetectChangesEnabled = true;       //LEAVE OUT OF CHAPTER 4 -      
+            }
+
+            return result; //#F
+        }
+
+        public async Task<ImmutableList<ValidationResult>> SaveChangesWithValidationAsync()
+        {
+            var result = this.ExecuteValidation();
+            if (result.Any()) return result;
+
+            this.ChangeTracker.AutoDetectChangesEnabled = false;
+            try
+            {
+                await this.SaveChangesAsync().ConfigureAwait(false);
+            }
+            finally
+            {
+                this.ChangeTracker.AutoDetectChangesEnabled = true;
+            }
+            return result;
+        }
+
+        private ImmutableList<ValidationResult>
+            ExecuteValidation()
+        {
+            var result = new List<ValidationResult>();
+            foreach (var entry in
+                     this.ChangeTracker.Entries() //#A
+                         .Where(e =>
+                             (e.State == EntityState.Added) ||   //#B
+                             (e.State == EntityState.Modified))) //#B
+            {
+                var entity = entry.Entity;
+                var valProvider = new
+                    ValidationDbContextServiceProvider(this);//#C
+                var valContext = new
+                    ValidationContext(entity, valProvider, null);
+                var entityErrors = new List<ValidationResult>();
+                if (!Validator.TryValidateObject(           //#D
+                        entity, valContext, entityErrors, true))//#D
+                {
+                    result.AddRange(entityErrors); //#E
+                }
+            }
+            return result.ToImmutableList(); //#F
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder) //#E
         {

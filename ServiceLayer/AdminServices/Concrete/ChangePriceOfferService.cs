@@ -5,15 +5,16 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using DataLayer.EfCode;
 using Entities.Models;
+using Infrastructure.Interfaces.DbContexts;
 using Microsoft.EntityFrameworkCore;
 
 namespace ServiceLayer.AdminServices.Concrete
 {
     public class ChangePriceOfferService : IChangePriceOfferService
     {
-        private readonly EfCoreContext _context;
+        private readonly IEfCoreContext _context;
 
-        public ChangePriceOfferService(EfCoreContext context)
+        public ChangePriceOfferService(IEfCoreContext context)
         {
             _context = context;
         }
@@ -53,7 +54,7 @@ namespace ServiceLayer.AdminServices.Concrete
 
             if (book.Promotion != null)                            //#C
             {
-                _context.Remove(book.Promotion);        //#D
+                _context.PriceOffers.Remove(book.Promotion);        //#D
                 _context.SaveChanges();                            //#D
                 return null; //#E
             }

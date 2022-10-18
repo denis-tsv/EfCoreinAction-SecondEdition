@@ -4,6 +4,7 @@
 using System.Linq;
 using DataLayer.EfCode;
 using Entities.Models;
+using Infrastructure.Interfaces.DbContexts;
 using Microsoft.EntityFrameworkCore;
 using StatusGeneric;
 
@@ -11,9 +12,9 @@ namespace ServiceLayer.AdminServices.Concrete
 {
     public class AddReviewService : IAddReviewService
     {
-        private readonly EfCoreContext _context;
+        private readonly IEfCoreContext _context;
 
-        public AddReviewService(EfCoreContext context)
+        public AddReviewService(IEfCoreContext context)
         {
             _context = context;
         }

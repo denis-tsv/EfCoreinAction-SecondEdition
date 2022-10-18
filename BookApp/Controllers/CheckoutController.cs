@@ -2,6 +2,7 @@
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using System.Linq;
+using BizDbAccess.Orders;
 using BizLogic.BasketServices;
 using BizLogic.Orders;
 using DataLayer.EfCode;
@@ -66,7 +67,7 @@ namespace BookApp.Controllers
 
         public IActionResult PlaceOrder(bool acceptTAndCs)
         {
-            var service = new PlaceOrderService(HttpContext.Request.Cookies, HttpContext.Response.Cookies, _context);
+            var service = new PlaceOrderService(HttpContext.Request.Cookies, HttpContext.Response.Cookies, _context, new PlaceOrderDbAccess(_context));
             var orderId = service.PlaceOrder(acceptTAndCs);
 
             if (!service.Errors.Any())

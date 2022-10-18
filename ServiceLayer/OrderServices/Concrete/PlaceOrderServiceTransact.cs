@@ -9,6 +9,7 @@ using BizLogic.Orders;
 using BizLogic.Orders.Concrete;
 using DataLayer.EfCode;
 using Entities.Models;
+using Infrastructure.Interfaces.DbContexts;
 using Microsoft.AspNetCore.Http;
 using ServiceLayer.BizRunners;
 using ServiceLayer.CheckoutServices.Concrete;
@@ -25,7 +26,8 @@ namespace ServiceLayer.OrderServices.Concrete
         public PlaceOrderServiceTransact(
             IRequestCookieCollection cookiesIn, 
             IResponseCookies cookiesOut, 
-            EfCoreContext context)
+            IEfCoreContext context,
+            IPlaceOrderDbAccess placeOrderDbAccess)
         {
             _basketCookie = new BasketCookie(
                 cookiesIn, cookiesOut);
@@ -33,9 +35,9 @@ namespace ServiceLayer.OrderServices.Concrete
                 <PlaceOrderInDto, Part1ToPart2Dto, Order>( //#C
                 context, //#D
                 new PlaceOrderPart1(                 //#E
-                    new PlaceOrderDbAccess(context)),//#E
+                    placeOrderDbAccess),//#E
                 new PlaceOrderPart2(                   //#F
-                    new PlaceOrderDbAccess(context))); //#F
+                    placeOrderDbAccess)); //#F
         }
 
         public IImmutableList<ValidationResult> Errors => _runner.Errors;

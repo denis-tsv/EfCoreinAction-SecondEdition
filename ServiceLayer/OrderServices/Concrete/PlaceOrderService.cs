@@ -9,6 +9,7 @@ using BizLogic.Orders;
 using BizLogic.Orders.Concrete;
 using DataLayer.EfCode;
 using Entities.Models;
+using Infrastructure.Interfaces.DbContexts;
 using Microsoft.AspNetCore.Http;
 using ServiceLayer.BizRunners;
 using ServiceLayer.CheckoutServices.Concrete;
@@ -27,14 +28,14 @@ namespace ServiceLayer.OrderServices.Concrete
         public PlaceOrderService(                           //#D
             IRequestCookieCollection cookiesIn,             //#D 
             IResponseCookies cookiesOut,                    //#D
-            EfCoreContext context)                          //#D
+            IEfCoreContext context, IPlaceOrderDbAccess placeOrderDbAccess)                          //#D
         {
             _basketCookie = new BasketCookie(               //#E
                 cookiesIn, cookiesOut);                     //#E
             _runner = 
                 new RunnerWriteDb<PlaceOrderInDto, Order>(  //#F
                     new PlaceOrderAction(                   //#F
-                        new PlaceOrderDbAccess(context)),   //#F
+                        placeOrderDbAccess),   //#F
                     context);                               //#F
         }
 

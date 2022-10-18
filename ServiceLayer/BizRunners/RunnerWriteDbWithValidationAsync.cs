@@ -7,17 +7,18 @@ using System.Linq;
 using System.Threading.Tasks;
 using BizLogic.GenericInterfaces;
 using DataLayer.EfCode;
+using Infrastructure.Interfaces.DbContexts;
 
 namespace ServiceLayer.BizRunners
 {
     public class RunnerWriteDbWithValidationAsync<TIn, TOut> //#A
     {
         private readonly IBizActionAsync<TIn, TOut> _actionClass; //#B
-        private readonly EfCoreContext _context;
+        private readonly IEfCoreContext _context;
 
         public RunnerWriteDbWithValidationAsync(
             IBizActionAsync<TIn, TOut> actionClass, //#C
-            EfCoreContext context)
+            IEfCoreContext context)
         {
             _context = context;
             _actionClass = actionClass;

@@ -7,16 +7,17 @@ using System.Linq;
 using BizLogic.BasketServices;
 using BizLogic.Orders;
 using DataLayer.EfCode;
+using Infrastructure.Interfaces.DbContexts;
 using Microsoft.AspNetCore.Http;
 
 namespace ServiceLayer.CheckoutServices.Concrete
 {
     public class CheckoutListService
     {
-        private readonly EfCoreContext _context;
+        private readonly IEfCoreContext _context;
         private readonly IRequestCookieCollection _cookiesIn;
 
-        public CheckoutListService(EfCoreContext context, IRequestCookieCollection cookiesIn)
+        public CheckoutListService(IEfCoreContext context, IRequestCookieCollection cookiesIn)
         {
             _context = context;
             _cookiesIn = cookiesIn;

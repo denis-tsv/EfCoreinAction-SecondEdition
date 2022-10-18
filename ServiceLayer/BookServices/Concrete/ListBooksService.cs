@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using DataLayer.EfCode;
 using DataLayer.QueryObjects;
+using Infrastructure.Interfaces.DbContexts;
 using Microsoft.EntityFrameworkCore;
 using ServiceLayer.BookServices.QueryObjects;
 
@@ -12,9 +13,9 @@ namespace ServiceLayer.BookServices.Concrete
 {
     public class ListBooksService
     {
-        private readonly EfCoreContext _context;
+        private readonly IEfCoreContext _context;
 
-        public ListBooksService(EfCoreContext context)
+        public ListBooksService(IEfCoreContext context)
         {
             _context = context;
         }

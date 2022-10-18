@@ -5,14 +5,15 @@ using System;
 using System.Linq;
 using DataLayer.EfCode;
 using Entities.Models;
+using Infrastructure.Interfaces.DbContexts;
 
 namespace ServiceLayer.AdminServices.Concrete
 {
     public class ChangePubDateService : IChangePubDateService //#A
     {
-        private readonly EfCoreContext _context;           //#B
+        private readonly IEfCoreContext _context;           //#B
                                                            //#B
-        public ChangePubDateService(EfCoreContext context) //#B
+        public ChangePubDateService(IEfCoreContext context) //#B
         {                                                  //#B
             _context = context;                            //#B
         }                                                  //#B

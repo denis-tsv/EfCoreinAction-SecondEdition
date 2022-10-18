@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Entities\Entities.csproj" />
+    <ProjectReference Include="..\BizDbAccess\Infrastructure.Interfaces.csproj" />
   </ItemGroup>
 
 </Project>

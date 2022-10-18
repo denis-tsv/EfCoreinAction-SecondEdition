@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceLayer", "ServiceLaye
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookApp", "BookApp\BookApp.csproj", "{BF8812C2-5F19-4A59-8A22-968ECF89A315}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BizDbAccess", "BizDbAccess\BizDbAccess.csproj", "{C8984C15-EA16-4933-ACCF-81E443424A1F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure.Interfaces", "BizDbAccess\Infrastructure.Interfaces.csproj", "{C8984C15-EA16-4933-ACCF-81E443424A1F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BizLogic", "BizLogic\BizLogic.csproj", "{5CE8C6CD-9C2F-4A95-89D5-5ED2B07E4D02}"
 EndProject
@@ -24,6 +24,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 Entities", "1 Entities", "{92D39025-D4FB-43A3-9D19-25AB9CAAF3A2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{32C47236-17B0-43FA-B5BD-13209A6603CC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 Infrastructure.Interfaces", "2 Infrastructure.Interfaces", "{FB9B0E55-DE3A-4B3F-8C6F-143D9BA2CD75}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -64,6 +66,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{C8984C15-EA16-4933-ACCF-81E443424A1F} = {FB9B0E55-DE3A-4B3F-8C6F-143D9BA2CD75}
 		{32C47236-17B0-43FA-B5BD-13209A6603CC} = {92D39025-D4FB-43A3-9D19-25AB9CAAF3A2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution

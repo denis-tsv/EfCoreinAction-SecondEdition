@@ -5,17 +5,18 @@ using System.Collections.Immutable;
 using System.ComponentModel.DataAnnotations;
 using BizLogic.GenericInterfaces;
 using DataLayer.EfCode;
+using Infrastructure.Interfaces.DbContexts;
 
 namespace ServiceLayer.BizRunners
 {
     public class RunnerWriteDb<TIn, TOut>
     {
         private readonly IBizAction<TIn, TOut> _actionClass;
-        private readonly EfCoreContext _context;
+        private readonly IEfCoreContext _context;
 
         public RunnerWriteDb(                 //#B
             IBizAction<TIn, TOut> actionClass,//#B
-            EfCoreContext context)            //#B
+            IEfCoreContext context)            //#B
         {
             _context = context;
             _actionClass = actionClass;

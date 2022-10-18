@@ -7,6 +7,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using BizLogic.GenericInterfaces;
 using DataLayer.EfCode;
+using Infrastructure.Interfaces.DbContexts;
 using Microsoft.EntityFrameworkCore.Storage;
 
 namespace ServiceLayer.BizRunners
@@ -21,10 +22,10 @@ namespace ServiceLayer.BizRunners
         private readonly IBizAction<TPass, TOut>          //#C 
             _actionPart2;                                 //#C
 
-        private readonly EfCoreContext _context;
+        private readonly IEfCoreContext _context;
 
         public RunnerTransact2WriteDb(                    //#E
-            EfCoreContext context,                        //#E
+            IEfCoreContext context,                        //#E
             IBizAction<TIn, TPass> actionPart1,           //#E
             IBizAction<TPass, TOut> actionPart2)          //#E 
         {
@@ -41,7 +42,7 @@ namespace ServiceLayer.BizRunners
         public TOut RunAction(TIn dataIn)
         {
             using (var transaction =                      //#F
-                _context.Database.BeginTransaction())     //#F
+                _context.BeginTransaction())     //#F
             {
                 var passResult = RunPart(                 //#G
                     _actionPart1, dataIn);                //#G

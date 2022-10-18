@@ -3,7 +3,9 @@
 
 using System;
 using System.Linq;
+using BizDbAccess.Orders;
 using DataLayer.EfCode;
+using Microsoft.EntityFrameworkCore;
 using ServiceLayer.CheckoutServices.Concrete;
 using ServiceLayer.OrderServices.Concrete;
 using Test.Mocks;
@@ -28,7 +30,7 @@ namespace Test.UnitTests.TestServiceLayer
                 context.SeedDatabaseFourBooks();
 
                 var mockCookieRequests = new MockHttpCookieAccess(BasketCookie.BasketCookieName, $"{Guid.NewGuid()},1,2");
-                var service = new PlaceOrderServiceTransact(mockCookieRequests.CookiesIn, mockCookieRequests.CookiesOut, context);
+                var service = new PlaceOrderServiceTransact(mockCookieRequests.CookiesIn, mockCookieRequests.CookiesOut, context, new PlaceOrderDbAccess(context));
 
                 //ATTEMPT
                 var orderId = service.PlaceOrder(false);
@@ -53,7 +55,7 @@ namespace Test.UnitTests.TestServiceLayer
                 context.SeedDatabaseFourBooks();
 
                 var mockCookieRequests = new MockHttpCookieAccess(BasketCookie.BasketCookieName, $"{userId},1,2");
-                var service = new PlaceOrderServiceTransact(mockCookieRequests.CookiesIn, mockCookieRequests.CookiesOut, context);
+                var service = new PlaceOrderServiceTransact(mockCookieRequests.CookiesIn, mockCookieRequests.CookiesOut, context, new PlaceOrderDbAccess(context));
 
                 //ATTEMPT
                 var orderId = service.PlaceOrder(true);

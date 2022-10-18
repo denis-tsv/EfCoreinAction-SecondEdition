@@ -1,7 +1,4 @@
-﻿// Copyright (c) 2020 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
-// Licensed under MIT license. See License.txt in the project root for license information.
-
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using DataLayer.EfCode;
 using Entities.Models;
@@ -9,18 +6,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BizDbAccess.Orders
 {
-    public interface IPlaceOrderDbAccess
-    {
-        /// <summary>
-        /// This finds any books that fits the BookIds given to it
-        /// </summary>
-        /// <param name="bookIds"></param>
-        /// <returns>A dictionary with the BookId as the key, and the Book as the value</returns>
-        IDictionary<int, Book> FindBooksByIdsWithPriceOffers(IEnumerable<int> bookIds);
-
-        void Add(Order newOrder);
-    }
-
     public class PlaceOrderDbAccess : IPlaceOrderDbAccess
     {
         private readonly EfCoreContext _context;
@@ -37,7 +22,7 @@ namespace BizDbAccess.Orders
         /// <returns>A dictionary with the BookId as the key, and the Book as the value</returns>
         public IDictionary<int, Book> 
             FindBooksByIdsWithPriceOffers               //#B
-               (IEnumerable<int> bookIds)               //#C
+            (IEnumerable<int> bookIds)               //#C
         {
             return _context.Books                       //#D
                 .Where(x => bookIds.Contains(x.BookId)) //#D
@@ -50,6 +35,7 @@ namespace BizDbAccess.Orders
             _context.Orders.Add(newOrder);              //#G
         } //#G
     }
+
     //0123456789|123456789|123456789|123456789|123456789|123456789|123456789|xxxxx!
     /************************************************************
     #A All the BizDbAccess need the application's DbContext to access the database

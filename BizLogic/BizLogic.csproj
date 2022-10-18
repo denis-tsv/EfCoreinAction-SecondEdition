@@ -9,8 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BizDbAccess\BizDbAccess.csproj" />
-    <ProjectReference Include="..\DataLayer\DataLayer.csproj" />
+    <ProjectReference Include="..\BizDbAccess\Infrastructure.Interfaces.csproj" />
   </ItemGroup>
 
 </Project>
